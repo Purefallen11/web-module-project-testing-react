@@ -33,7 +33,18 @@ test("render without errors", () => {
 	render(<Display />)
 })
 
-test('a')
+test("fetch button pressed, display show component", async () => {
+
+	mockFetchShow.mockResolvedValueOnce(testData);
+
+	render(<Display />);
+	const button = screen.getByRole('button');
+
+	userEvent.click(button)
+	const showsDisplay = await screen.findByTestId('show-container')
+	expect(showsDisplay).toBeInTheDocument()
+
+})
 
 
 
