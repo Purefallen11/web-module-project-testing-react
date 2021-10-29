@@ -33,7 +33,7 @@ test("render without errors", () => {
 	render(<Display />)
 })
 
-test('')
+test('a')
 
 
 
