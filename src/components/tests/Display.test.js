@@ -46,7 +46,19 @@ test("fetch button pressed, display show component", async () => {
 
 })
 
+test("fetch button is pressed, select options render equal to seasons in test data", async () => {
+	mockFetchShow.mockResolvedValueOnce(testData);
+	
+	render(<Display />);
+	const button = screen.getByRole('button')
 
+	userEvent.click(button)
+
+	await waitFor(() => {
+		const selectOptions = screen.queryAllByTestId('season-option')
+		expect(selectOptions).toHaveLength(3)
+	})
+})
 
 
 ///Tasks:
